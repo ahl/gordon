@@ -159,6 +159,8 @@ class ApiGateway(BaseResource):
             extra = {}
             if 'template' in response:
                 extra['ResponseTemplates'] = response['template']
+            if 'parameters' in response:
+                extra['ResponseParameters'] = response['parameters']
             responses.append(
                 IntegrationResponse(
                     SelectionPattern=six.text_type(response['pattern']),
