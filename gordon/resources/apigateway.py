@@ -196,7 +196,7 @@ class ApiGateway(BaseResource):
         api = RestApi(
             self.in_project_cf_name,
             Name=troposphere.Join("-", [self.name, troposphere.Ref('Stage')]),
-            Description=self.settings.get('description', '')
+            Description=self.settings.get('description') # not optional
         )
         template.add_resource(api)
         deployment_resources.append(api)
